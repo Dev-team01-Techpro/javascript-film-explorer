@@ -1,6 +1,6 @@
 // index.html mainde olusturulan kartlarin
 // elementlerini olusturacak javascript fonksiyonu
-// createelement kullanacak
+// createelement kullanacak Mehmet
 
 /*
     api.jsdeki butun filmleri ceken fonksiyonu 
