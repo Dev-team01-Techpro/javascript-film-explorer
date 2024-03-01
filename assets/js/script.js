@@ -1,16 +1,21 @@
-// index.html mainde olusturulan
-// film elementlerini olusturacak javascript fonksiyonu
+// index.html mainde olusturulan kartlarin
+// elementlerini olusturacak javascript fonksiyonu
+// createelement kullanacak
 
 /*
     api.jsdeki butun filmleri ceken fonksiyonu 
-    calistiracak fonksiyon
+    calistiracak fonksiyon //Sule
 */
 
 /*
     api.jsdeki tek filmi ceken fonksiyonu 
-    calistiracak fonksiyon
+    calistiracak fonksiyon // Duygu
 */
 /*
     api.jsdeki search apisini 
-    calistiracak fonksiyon
+    calistiracak fonksiyon // Eda
+*/
+/*
+    api.jsdeki people apisini 
+    calistiracak fonksiyon // Cahit
 */

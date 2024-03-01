@@ -1,8 +1,10 @@
 const API_BASE_URL = "https://api.tvmaze.com";
 
 // ----------------------------------------------
-// Butun Filmleri cek
+// Butun Filmleri cek // Sule
 // ----------------------------------------------
-// Tek Film cek
+// Tek Film cek // Duygu
 // ----------------------------------------------
-// Search apisi
+// Search apisi // Eda
+// ----------------------------------------------
+// People verisini cek // Cahit
