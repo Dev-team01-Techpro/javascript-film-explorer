@@ -1,3 +1,7 @@
+import { search } from "../../data/api.js";
+const inpMovieName = document.querySelector(".inp");
+const filmList = document.querySelector(".film-list");
+
 const mainEl = document.querySelector(".main");
 const parent = document.querySelector(".parent");
 
@@ -227,15 +231,43 @@ const createAndAppendElement = (
     api.jsdeki search apisini 
     calistiracak fonksiyon // Eda
 */
+
+//----------------------Eda-----------------------
+
+let vrb = "";
+
+inpMovieName.addEventListener("input",async (e)=>{
+
+   
+    clearTimeout(vrb)
+
+    vrb = setTimeout(async ()=>{
+       
+        let movies = e.target.value;
+
+        let moviesFiltered = await searchByName(movies);
+   
+     let all =  fullFill(moviesFiltered) 
+     filmList.innerHTML=all;
+    }
+    ,1000)
+
+});
+
+
+const searchByName = async (q)=>{
+   let searchedMovie = await search(q);
+   return searchedMovie;
+ } 
+
+//----------------------Eda------------------------
+
 /*
     api.jsdeki people apisini 
     calistiracak fonksiyon // Cahit
 */
 
 /* ---------CAHIT----------------- */
-
-
-
 
 const getInformation = async (q) => {
   let information = [];
@@ -294,10 +326,5 @@ const infoCardCreater = (m) => {
   paragrafDiv.appendChild(paragrafEl);
 };
 
-
-
-
-
-
-
 /* ---------CAHIT----------------- */
+
