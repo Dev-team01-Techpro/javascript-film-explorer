@@ -236,29 +236,23 @@ const createAndAppendElement = (
 
 let vrb = "";
 
-inpMovieName.addEventListener("input",async (e)=>{
+inpMovieName.addEventListener("input", async (e) => {
+  clearTimeout(vrb);
 
-   
-    clearTimeout(vrb)
+  vrb = setTimeout(async () => {
+    let movies = e.target.value;
 
-    vrb = setTimeout(async ()=>{
-       
-        let movies = e.target.value;
+    let moviesFiltered = await searchByName(movies);
 
-        let moviesFiltered = await searchByName(movies);
-   
-     let all =  fullFill(moviesFiltered) 
-     filmList.innerHTML=all;
-    }
-    ,1000)
-
+    let all = fillCard(moviesFiltered);
+    filmList.innerHTML = all;
+  }, 1000);
 });
 
-
-const searchByName = async (q)=>{
-   let searchedMovie = await search(q);
-   return searchedMovie;
- } 
+const searchByName = async (q) => {
+  let searchedMovie = await search(q);
+  return searchedMovie;
+};
 
 //----------------------Eda------------------------
 
@@ -275,21 +269,19 @@ const getInformation = async (q) => {
 
   q.forEach((items) => {
     obje = {
-      id:items.id,
+      id: items.id,
       name: items.show.name,
       language: items.show.language,
       ratingScore: items.show.rating.average ?? "No Rating",
       summary: items.show.summary,
       type: items.show.type,
-      image:items.show.image.medium
+      image: items.show.image.medium,
     };
     information.push(obje);
   });
   console.log(information);
   return information;
 };
-
-export const methods = { getAllMovies,getInformation };
 
 const infoCardCreater = (m) => {
   let infoCardDiv = document.createElement("div");
@@ -327,4 +319,3 @@ const infoCardCreater = (m) => {
 };
 
 /* ---------CAHIT----------------- */
-

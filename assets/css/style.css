@@ -9,12 +9,10 @@ li {
 a {
   text-decoration: none;
 }
-
-
-
-
-
-
+html,
+body {
+  height: 100%;
+}
 
 /* Font Family Bul */
 
@@ -36,11 +34,11 @@ a {
   position: relative;
 }
 
-.forName{
+.forName {
   font-size: 25px;
   font-weight: bold;
   margin-bottom: 10px;
-  color:rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 700;
@@ -79,7 +77,7 @@ a {
   z-index: 2;
 }
 
-.forCountry{
+.forCountry {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -93,8 +91,7 @@ a {
   z-index: 2;
 }
 
-
-.parent{
+.parent {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -109,4 +106,3 @@ a {
   background-color: transparent;
   z-index: 1;
 }
-
