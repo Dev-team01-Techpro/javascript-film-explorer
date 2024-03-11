@@ -6,13 +6,13 @@ const API_BASE_URL = "https://api.tvmaze.com/";
 // ---------------------Duygu-------------------------
 // Tek Film cek isim ile // Duygu
 
-    const getMovieByName = async (q) => {
-      const res = await fetch(`${API_BASE_URL}/search/shows?q=${q}`);
-      if(!res.ok) throw new Error("The movie can not be found"); 
-      const data= await res.json();
-      return data;
-    }
-    
+export const getMovieByName = async (q) => {
+  const res = await fetch(`${API_BASE_URL}/search/shows?q=${q}`);
+  if (!res.ok) throw new Error("The movie can not be found");
+  const data = await res.json();
+  return data;
+};
+
 // --------------------Duygu--------------------------
 // ----------------------------------------------
 
@@ -24,22 +24,17 @@ const API_BASE_URL = "https://api.tvmaze.com/";
 //----------------------Eda-----------------------
 
 export const search = async (q) => {
+  if (q.length < 3) return;
 
-    if(q.length < 3) return;
+  const res = await fetch(`${API_BASE_URL}/search/shows?q=:${q}`);
 
+  if (!res) throw new Error("data is empty");
 
-        const res = await fetch(`${API_BASE_URL}/search/shows?q=:${q}`);
+  const data = await res.json();
 
-        if(!res) throw new Error("data is empty");
-
-        const data = await res.json();
-
-        return data;
-}
-
-
+  return data;
+};
 
 //----------------------Eda------------------------
 
 // People verisini cek // Cahit
-
