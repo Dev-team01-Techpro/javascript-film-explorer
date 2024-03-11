@@ -244,8 +244,10 @@ inpMovieName.addEventListener("input", async (e) => {
 
     let moviesFiltered = await searchByName(movies);
 
-    let all = fillCard(moviesFiltered);
-    filmList.innerHTML = all;
+    moviesFiltered.forEach((item) => {
+      let all = fillCard(item);
+      filmList.innerHTML = all;
+    });
   }, 1000);
 });
 
