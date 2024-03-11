@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>deneme</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
-<body>
-    <header class="bg-warning p-3 text-center">
-        <h1>TV Shows</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script type="module" defer src="./assets/js/script.js"></script>
+    <title>Film Explorer</title>
+  </head>
+  <body>
+    <header class="header">
+      <!-- Logo  Tuba -->
+      <!-- Search Tuba -->
     </header>
     <div class="container">
         <div class="mt-4">
@@ -23,6 +25,25 @@
         <div id="listShows" class="row row-cols-2 row-cols-md-3 row-cols-xl-4 g-4 mt-4">
         </div>
     </div>
-    <script src="./assets/js/script.js" type="module"></script>
-</body>
+
+    <main class="main">
+      <div class="input d-flex justify-content-center align-content-center">
+        <input
+          type="text"
+          class="inp m-3 d-flex w-75 p-2 mb-3 rounded-3 bg-"
+          placeholder=" 🎬 Choose your movies"
+        />
+      </div>
+
+      <div
+        class="film-list row row-cols-3 row-cols-md-4 row-cols-lg-5 d-flex justify-content-center align-content-center"
+      ></div>
+      <!-- Film Listesi  Mehmet -->
+
+      <div class="parent"></div>
+    </main>
+    <footer class="footer">
+      <!-- Copyright -->
+    </footer>
+  </body>
 </html>
