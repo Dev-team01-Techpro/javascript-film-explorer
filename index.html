@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico" />
@@ -11,45 +11,35 @@
   <body>
     <header class="header">
       <!-- Logo  Tuba -->
+      <div class="topnav">
+        <img class="img" src="./assets/img/minnosFilmLogo.png" alt="logo">
+         <div class="search-container">
+         
+          <main class="main">
+            <div class="input d-flex justify-content-center align-content-center">
+              <input
+                type="text"
+                class="inp m-3 d-flex w-75 p-2 mb-3 rounded-3 bg-"
+                placeholder=" 🎬 Choose your movies"
+                id="inpMovieName"
+              />
+            <button class="btn" type="submit"><i class="fa fa-search"></i></button>
+          </div>
+        </div>
+      </div>
       <!-- Search Tuba -->
     </header>
-    <div class="container">
-      <div class="mt-4">
-        <input
-          type="search"
-          id="inpSearch"
-          placeholder="Movie name.."
-          class="form-control"
-        />
-      </div>
-      <!--  <div id="loader" class="d-flex justify-content-center align-items-center my-3">
-            <div class="spinner-border text-warning spinner-border" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
-        </div> -->
-      <div
-        id="listShows"
-        class="row row-cols-2 row-cols-md-3 row-cols-xl-4 g-4 mt-4"
-      ></div>
-    </div>
 
-    <main class="main">
-      <div class="input d-flex justify-content-center align-content-center">
-        <input
-          type="text"
-          class="inp m-3 d-flex w-75 p-2 mb-3 rounded-3 bg-"
-          placeholder=" 🎬 Choose your movies"
-        />
-      </div>
 
-      <div
-        class="film-list row row-cols-3 row-cols-md-4 row-cols-lg-5 d-flex justify-content-center align-content-center"
-      ></div>
       <!-- Film Listesi  Mehmet -->
 
       <div class="parent"></div>
     </main>
     <footer class="footer">
+      <img src="./assets/img/logo.png" alt="Janavarlar" />
+      <span class="copyright">
+        &copy;
+        </span>
       <!-- Copyright -->
     </footer>
   </body>

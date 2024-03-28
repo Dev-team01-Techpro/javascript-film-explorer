@@ -1,78 +1,23 @@
-import { search, getMovieByName } from "../../data/api.js";
-const inpMovieName = document.querySelector(".inp");
-const filmList = document.querySelector(".film-list");
+import { search, getMovieByName, getAllShows } from "../../data/api.js";
+import { languageAndCountryCodes, languageAndCountryNames } from "../../data/countries.js";
 
-const mainEl = document.querySelector(".main");
+
+const inpMovieName= document.getElementById("inpMovieName");
 const parent = document.querySelector(".parent");
 
-const languageAndCountryCodes = {
-  Turkish: "tr",
-  English: "gb",
-  German: "de",
-  French: "fr",
-  Spanish: "es",
-  Italian: "it",
-  Japanese: "jp",
-  Korean: "kr",
-  Chinese: "cn",
-  Portuguese: "pt",
-  Russian: "ru",
-  Vietnamese: "vn",
-  Hindi: "in",
-  Thai: "th",
-  Arabic: "ae",
-  Indonesian: "id",
-  Polish: "pl",
-  Czech: "cz",
-  Hungarian: "hu",
-  Swedish: "se",
-  Norwegian: "no",
-  Danish: "dk",
-  Finnish: "fi",
-  Greek: "gr",
-  Croatian: "hr",
-  Serbian: "rs",
-  Bulgarian: "bg",
-  Ukrainian: "ua",
-  Romanian: "ro",
-  Bengali: "bd",
-};
-const languageAndCountryNames = {
-  Turkish: "Turkey",
-  English: "The USA",
-  German: "Germany",
-  French: "France",
-  Spanish: "Spain",
-  Italian: "Italy",
-  Japanese: "Japan",
-  Korean: "Korea",
-  Chinese: "China",
-  Portuguese: "Portugal",
-  Russian: "Russia",
-  Vietnamese: "Vietnam",
-  Hindi: "India",
-  Thai: "Thailand",
-  Arabic: "United Arab Emirates",
-  Indonesian: "Indonesia",
-  Polish: "Poland",
-  Czech: "Czech Republic",
-  Hungarian: "Hungary",
-  Swedish: "Sweden",
-  Norwegian: "Norway",
-  Danish: "Denmark",
-  Finnish: "Finland",
-  Greek: "Greece",
-  Croatian: "Croatia",
-  Serbian: "Serbia",
-  Bulgarian: "Bulgaria",
-  Ukrainian: "Ukraine",
-  Romanian: "Romania",
-  Bengali: "Bangladesh",
-};
 
 const fillCard = (item) => {
-  const { name, image, language, premiered, rating } = item.show;
+  const { name, image, language, premiered, rating } =item.show;
+  assistantMethod(name,image,language,premiered,rating);
+  
+};
+const fillCardForGetAll=(item)=>{
+  const { name, image, language, premiered, rating } =item;
+  assistantMethod(name,image,language,premiered,rating);
+}
 
+//ELEMENT OLUŞTURMA YARDIMCI METHOD
+const assistantMethod =(name,image,language,premiered,rating)=> {
   const imageStyle = `url(${image.medium})`;
   const cardStyles =
     imageStyle !== null
@@ -182,9 +127,7 @@ const fillCard = (item) => {
     countryName.style.display = "none";
     ratingFilm.style.display = "none";
   });
-};
-
-//ELEMENT OLUŞTURMA YARDIMCI METHOD
+}
 const createAndAppendElement = (
   tagName,
   parent,
@@ -213,16 +156,27 @@ const createAndAppendElement = (
   parent.appendChild(element);
   return element;
 };
+//---------------------yrdmc mthd---------------------
 
-// index.html mainde olusturulan kartlarin
-// elementlerini olusturacak javascript fonksiyonu
-// createelement kullanacak Mehmet
-/*
-    api.jsdeki butun filmleri ceken fonksiyonu 
-    calistiracak fonksiyon //Sule
-*/
+//---------ŞULEEE------------------------
+const handleDOMContentLoaded= async()=>{
+ const shows = await getAllShows();
+  let strShows = "";
+  console.log(shows);
+
+  shows.forEach((item) => {
+    strShows += fillCardForGetAll(item);
+  });
+ 
+}
+document.addEventListener("DOMContentLoaded", handleDOMContentLoaded);
+
+//---------ŞULEEE------------------------
+
+
 //-------------- Duygu---------------
 
+/*
 const keyword = document.getElementById("inpSearch");
 const listShows = document.getElementById("listShows");
 
@@ -251,44 +205,36 @@ keyword.addEventListener("input", async (e) => {
     });
   }
   listShows.innerHTML = foundMovies;
-});
+});*/
 
 // ---------------------Duygu-------------------------
-/*
-    api.jsdeki search apisini 
-    calistiracak fonksiyon // Eda
-*/
 
 //----------------------Eda-----------------------
 
 let vrb = "";
 
 inpMovieName.addEventListener("input", async (e) => {
+  parent.innerHTML = "";
   clearTimeout(vrb);
 
   vrb = setTimeout(async () => {
-    let movies = e.target.value;
+    let movies = e.target.value;    
+    let moviesFiltered = await searchByName(movies,handleDOMContentLoaded);
 
-    let moviesFiltered = await searchByName(movies);
-
+    let strShows = "";
     moviesFiltered.forEach((item) => {
-      let all = fillCard(item);
-      filmList.innerHTML = all;
-    });
+    strShows += fillCard(item);
+  });
   }, 1000);
 });
 
-const searchByName = async (q) => {
-  let searchedMovie = await search(q);
+const searchByName = async (q,method) => {
+  let searchedMovie = await search(q,method);
   return searchedMovie;
 };
 
 //----------------------Eda------------------------
 
-/*
-    api.jsdeki people apisini 
-    calistiracak fonksiyon // Cahit
-*/
 
 /* ---------CAHIT----------------- */
 

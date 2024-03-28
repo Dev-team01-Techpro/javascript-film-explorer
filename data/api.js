@@ -2,6 +2,24 @@ const API_BASE_URL = "https://api.tvmaze.com/";
 
 // ----------------------------------------------
 // Butun Filmleri cek // Sule
+export const getAllShows = async () => {
+
+try {
+  const res = await fetch(`${API_BASE_URL}shows`);
+
+  if(!res.ok) {
+      throw new Error("Something went wrong ");
+  } 
+   const data = await res.json();
+   return data;
+
+}catch (error) {
+  console.error('Data is empty:', error.message);
+  throw error;
+  }
+
+};
+
 // ----------------------------------------------
 // ---------------------Duygu-------------------------
 // Tek Film cek isim ile // Duygu
@@ -23,8 +41,11 @@ export const getMovieByName = async (q) => {
 
 //----------------------Eda-----------------------
 
-export const search = async (q) => {
-  if (q.length < 3) return;
+export const search = async (q,method) => {
+  if (q.length < 3) {
+    method();
+    return;
+  };
 
   const res = await fetch(`${API_BASE_URL}/search/shows?q=:${q}`);
 

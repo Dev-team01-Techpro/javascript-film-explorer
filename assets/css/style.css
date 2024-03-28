@@ -3,16 +3,93 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 li {
   list-style-type: none;
 }
+
 a {
   text-decoration: none;
 }
+
 html,
 body {
   height: 100%;
+  background-color: #7ef1e2;
+
 }
+
+/* tuba*/
+
+/* Style the navbar */
+.topnav {
+  overflow: hidden;
+  background-color: #f5c4d8;
+
+}
+
+.img {
+  width: 10%;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  padding-left: 10px;
+}
+
+/* Style the input container */
+.topnav .search-container {
+  float: right;
+}
+
+/* Style the input field inside the navbar */
+.topnav input[type=text] {
+  padding: 10px;
+  margin-top: 20px;
+  font-size: 17px;
+  border: none;
+}
+
+/* Style the button inside the input container */
+.topnav .search-container button {
+  float: right;
+  padding: 10px;
+  margin-top: 20px;
+  margin-right: 16px;
+  background: #abd9ee;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.topnav .search-container button:hover {
+  background: #f5c4d8;
+}
+
+/* Add responsiveness - On small screens, display the navbar vertically instead of horizontally */
+@media screen and (max-width: 600px) {
+  .topnav .search-container {
+    float: none;
+  }
+
+  .topnav a,
+  .topnav input[type=text],
+  .topnav .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+
+  .topnav input[type=text] {
+    border: 1px solid #f5c4d8;
+  }
+}
+
+/* tuba*/
 
 /* Font Family Bul */
 
@@ -105,4 +182,32 @@ body {
   right: 0;
   background-color: transparent;
   z-index: 1;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  background-color: #f5c4d8;
+  color: #7ef1e2;
+  user-select: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin-top: auto;
+
+
+}
+
+.footer img {
+  display: flex;
+  height: 50px;
+}
+
+.footer .copyright {
+  display: flex;
+  font-size: 20px;
+  gap: 0.2rem;
 }
